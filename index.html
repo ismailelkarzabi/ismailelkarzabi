@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Spend Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="eyebrow">Daily Spendings</p>
+          <h1>Track what you spend, as you spend it.</h1>
+          <p class="subhead">
+            Add each purchase with an amount, currency, and a quick note (ex: Coffee 2 MAD).
+          </p>
+        </div>
+        <button class="ghost-button" id="clear-all" type="button">Clear all</button>
+      </header>
+
+      <section class="card">
+        <form id="spend-form">
+          <div class="grid">
+            <label>
+              <span>Amount</span>
+              <input
+                name="amount"
+                type="number"
+                inputmode="decimal"
+                min="0.01"
+                step="0.01"
+                placeholder="2.00"
+                required
+              />
+            </label>
+            <label>
+              <span>Currency</span>
+              <select name="currency" aria-label="Currency">
+                <option value="MAD">MAD</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+              </select>
+            </label>
+            <label class="wide">
+              <span>What did you spend on?</span>
+              <input name="title" type="text" placeholder="Coffee" required />
+            </label>
+          </div>
+          <button class="primary" type="submit">Add spend</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="summary">
+          <div>
+            <p class="eyebrow">Today</p>
+            <h2 id="today-date"></h2>
+          </div>
+          <div class="totals" id="totals"></div>
+        </div>
+        <ul class="spend-list" id="spend-list"></ul>
+      </section>
+    </main>
+
+    <template id="spend-row">
+      <li class="spend-row">
+        <div>
+          <p class="spend-title"></p>
+          <p class="spend-meta"></p>
+        </div>
+        <p class="spend-amount"></p>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
